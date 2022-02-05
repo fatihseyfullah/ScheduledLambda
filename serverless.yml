@@ -1,0 +1,15 @@
+service: periodiclambda
+
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  region: eu-west-1
+  stage: test
+
+functions:
+  runInEveryMinute:
+    handler: handler.runPeriodically
+    events:
+      - schedule: rate(1 minute)
